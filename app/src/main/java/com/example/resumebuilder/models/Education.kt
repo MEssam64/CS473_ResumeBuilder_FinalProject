@@ -4,7 +4,6 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
 import com.example.resumebuilder.models.helper.DateConverter
-import com.example.resumebuilder.models.helper.TimestampConverter
 import java.io.Serializable
 import java.util.*
 
