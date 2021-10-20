@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
+import androidx.room.Room
+import com.example.resumebuilder.models.CVDataBase
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -32,5 +34,14 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }.attach()
+
+        val db = Room.databaseBuilder(
+            applicationContext,
+            CVDataBase::class.java,
+            "CVDataBase"
+        ).allowMainThreadQueries().build()
+
+        val userDAO = db.getDao()
+        var ss = userDAO.getAllUsers()
     }
 }
