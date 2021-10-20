@@ -11,6 +11,11 @@ interface DAO {
     @Query("SELECT * FROM User")
     suspend fun getAllUsers() : List<UserWithAllData>
 
+    @Transaction
+    @Query("SELECT * FROM User where emailAddress = :email")
+    fun getUserByEmail( email:String) : UserWithAllData
+
+
     @Update
     fun updateUser(user: User)
 
