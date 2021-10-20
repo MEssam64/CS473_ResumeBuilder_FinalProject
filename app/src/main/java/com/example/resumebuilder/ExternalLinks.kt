@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import android.webkit.WebViewClient
 import kotlinx.android.synthetic.main.fragment_external_links.*
 
-class ExternalLinks : Fragment() {
+class ExternalLinks : BaseFragment() {
 
     lateinit var webViewItem : WebView
 

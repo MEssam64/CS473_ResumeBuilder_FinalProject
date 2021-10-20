@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class AboutMe : Fragment() {
+class AboutMe : BaseFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

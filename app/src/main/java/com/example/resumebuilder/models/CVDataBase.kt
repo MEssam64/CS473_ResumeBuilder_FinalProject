@@ -14,19 +14,21 @@ import com.example.resumebuilder.models.helper.TimestampConverter
 abstract class CVDataBase() : RoomDatabase() {
     abstract fun getDao(): DAO
 
-//    companion object {
-//        @Volatile private var instance: CVDataBase? = null
-//        private val LOCK = Any()
-//
-//        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
-//            instance ?: buildDataBase(context).also {
-//                instance = it
-//            }
-//        }
+    companion object {
+        @Volatile
+        private var instance: CVDataBase? = null
+        private val LOCK = Any()
 
-//        private fun buildDataBase(context: Context) = Room.databaseBuilder(
-//            context.applicationContext,
-//            CVDataBase::class.java,
-//            "CVDataBase"
-//        ).build()
+        operator fun invoke(context: Context) = instance ?: synchronized(LOCK) {
+            instance ?: buildDataBase(context).also {
+                instance = it
+            }
+        }
+
+        private fun buildDataBase(context: Context) = Room.databaseBuilder(
+            context.applicationContext,
+            CVDataBase::class.java,
+            "CVDataBase"
+        ).build()
+    }
 }
