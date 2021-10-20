@@ -10,11 +10,7 @@ import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.FrameLayout
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentContainerView
-import androidx.room.Room
 import com.example.resumebuilder.models.CVDataBase
 import com.example.resumebuilder.models.User
 import com.example.resumebuilder.models.UserWithAllData
@@ -60,19 +56,6 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
-     /*   val db = Room.databaseBuilder(
-            applicationContext,
-            CVDataBase::class.java,
-            "CVDataBase"
-        ).allowMainThreadQueries().build()
-
-        val userDAO = db.getDao()
-        var ss = userDAO.getAllUsers()
-
-      */
-
-
-
         val db = CVDataBase.invoke(this);
 
 
@@ -81,7 +64,7 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch {
             var ss = userDAO.getAllUsers()
             if (ss.isEmpty()){
-                userDAO.addUser(User("asrat","birhanu","akelilew@miu.edu","6418191529","","Java Developer",""))
+                userDAO.addUser(User("asrat","birhanu","akelilew@miu.edu","6418191529","","Java Developer","",""))
             }
             userWithAllData=userDAO.getUserByEmail("akelilew@miu.edu")
 
@@ -105,15 +88,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.main_menu,menu)
-//        val intent = Intent(this, IntroduceActivity::class.java)
-//        startActivity(intent)
-//        return super.onCreateOptionsMenu(menu)
-//    }
-
-
-
 
     fun toPdf(view: View) {
         if(Build.VERSION.SDK_INT> Build.VERSION_CODES.M){
