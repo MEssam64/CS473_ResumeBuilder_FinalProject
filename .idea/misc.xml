@@ -3,21 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2078125" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2078125" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/activity_introduce.xml" value="0.2" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_about_me.xml" value="0.19791666666666666" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_education.xml" value="0.19791666666666666" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_external_links.xml" value="0.19791666666666666" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_introduce.xml" value="0.19166666666666668" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_work_experience.xml" value="0.19791666666666666" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/menu/main_menu.xml" value="0.19791666666666666" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/menu/video.xml" value="0.20833333333333334" />
-        <entry key="..\:/473/CS473_ResumeBuilder_FinalProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2078125" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_about_me.xml" value="0.25" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_education.xml" value="0.33" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_external_links.xml" value="0.35260416666666666" />
+        <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_introduce.xml" value="0.20520833333333333" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_work_experience.xml" value="0.20520833333333333" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/menu/main_menu.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/student/Documents/GitHub/CS473_ResumeBuilder_FinalProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.11041666666666666" />

@@ -21,7 +21,7 @@
             android:text="Name: " />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txtName"
             android:layout_width="255dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -41,7 +41,7 @@
             android:text="EMail: " />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtEmail"
             android:layout_width="255dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -61,7 +61,7 @@
             android:text="Address: " />
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/txtAddress"
             android:layout_width="255dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -71,23 +71,43 @@
             android:text="1000 N 4th st" />
 
         <TextView
-            android:id="@+id/textView7"
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="26dp"
             android:layout_marginTop="130dp"
-            android:text="Bio: " />
+            android:text="Address: " />
 
         <TextView
-            android:id="@+id/textView8"
+            android:id="@+id/txtPhone"
             android:layout_width="255dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="105dp"
             android:layout_marginTop="130dp"
+            android:text="1111111111" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginTop="165dp"
+            android:text="Bio: " />
+
+        <TextView
+            android:id="@+id/txtBio"
+            android:layout_width="255dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="105dp"
+            android:layout_marginTop="165dp"
             android:text="More than 4 years in experience as a software engineer worked with Java, Kotlin, Spring Boot, Spring MVC Hibernate and many other backend technologies" />
     </RelativeLayout>
 

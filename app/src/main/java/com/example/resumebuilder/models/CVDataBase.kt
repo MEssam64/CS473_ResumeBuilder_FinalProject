@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.resumebuilder.models.helper.InitialData
 import java.util.*
 import java.util.concurrent.Executors
 

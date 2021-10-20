@@ -8,7 +8,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.widget.FrameLayout
@@ -104,8 +103,6 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-//        val intent = Intent(this, IntroduceActivity::class.java)
-//        startActivity(intent)
         return super.onOptionsItemSelected(item)
     }
 //    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
