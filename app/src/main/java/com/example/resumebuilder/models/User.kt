@@ -13,6 +13,7 @@ data class User(
     var phoneNumber: String,
     var imageURL: String,
     var title: String,
+    var address: String,
     var bio: String) : Serializable {
 
     @PrimaryKey(autoGenerate = true)
