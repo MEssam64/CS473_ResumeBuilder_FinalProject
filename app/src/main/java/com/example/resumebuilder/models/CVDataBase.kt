@@ -4,9 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.resumebuilder.models.helper.InitialData
+import java.util.*
+import java.util.concurrent.Executors
+
 
 @Database(
-    entities = [User::class, Experience::class, Education::class],
+    entities = [User::class, Experience::class, Education::class, ExternalLinks::class],
     version = 1
 )
 abstract class CVDataBase() : RoomDatabase() {
@@ -26,7 +31,19 @@ abstract class CVDataBase() : RoomDatabase() {
         private fun buildDataBase(context: Context) = Room.databaseBuilder(
             context.applicationContext,
             CVDataBase::class.java,
-            "CVDataBase"
-        ).build()
+            "CVDataBase")
+            .addCallback(object : Callback(){
+                override fun onCreate(db: SupportSQLiteDatabase) {
+                    super.onCreate(db)
+                    Executors.newSingleThreadScheduledExecutor().execute(Runnable {
+                        instance?.getDao()?.addUser(User("Mohamed","Abdelzaher","MAbdelzaher@miu.edu","641-819-1159","","Software Engineer","1000 N 4th street","BIO"))
+                        instance?.getDao()?.addExperience(Experience("Zen3 InfoSolutions","https://zen3tech.com","Redmond - WA", "Software Engineer", Date(2020,11,9),Date(2021,4,15),false,1))
+                        instance?.getDao()?.addExperience(Experience("MIU university","https://miu.edu","Fairfield - IA", "Software Engineer", Date(2021,4,16),null,true,1))
+                        instance?.getDao()?.addEducation(Education("Port Said Univeristy","Egypt","Bachelor in Engineering",Date(2006,9,1), Date(2011,5,30),true,1))
+                        instance?.getDao()?.addExternalLink(ExternalLinks(1,ExternalLinksTypesEnum.LinkedIn, "https://linkedin.com/in/mohamed-abdelzaher"))
+                    })
+                }
+            })
+            .build()
     }
 }

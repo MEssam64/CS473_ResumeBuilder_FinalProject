@@ -1,6 +1,7 @@
 package com.example.resumebuilder.models
 
 import androidx.room.Embedded
+import androidx.room.Junction
 import androidx.room.Relation
 
 class UserWithAllData (
@@ -12,4 +13,9 @@ class UserWithAllData (
     @Relation(
         parentColumn = "id",
         entityColumn = "userId")
-    var educations : List<Education>)
+    var educations : List<Education>,
+    @Relation(
+        parentColumn = "id",
+        entityColumn = "userId")
+    var externalLinks: List<ExternalLinks>
+    )

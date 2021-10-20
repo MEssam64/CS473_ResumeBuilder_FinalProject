@@ -3,12 +3,12 @@ package com.example.resumebuilder.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
-import com.example.resumebuilder.models.helper.DateConverter
+import com.example.resumebuilder.models.helper.DataConverter
 import java.io.Serializable
 import java.util.*
 
 @Entity
-@TypeConverters(DateConverter::class)
+@TypeConverters(DataConverter::class)
 data class Experience(
     var companyName: String,
     var companayURL: String,
