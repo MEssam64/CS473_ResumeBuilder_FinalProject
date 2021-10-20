@@ -1,7 +1,11 @@
 package com.example.resumebuilder
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
@@ -32,6 +36,9 @@ class MainActivity : AppCompatActivity() {
                 3 -> {
                     tab.text = "External Links"
                 }
+//                4 -> {
+//                    tab.text = "introduce"
+//                }
             }
         }.attach()
 
@@ -44,4 +51,28 @@ class MainActivity : AppCompatActivity() {
         val userDAO = db.getDao()
         var ss = userDAO.getAllUsers()
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.video_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.introduce-> {
+                val intent = Intent(this, IntroduceActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
+//        val intent = Intent(this, IntroduceActivity::class.java)
+//        startActivity(intent)
+        return super.onOptionsItemSelected(item)
+    }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.main_menu,menu)
+//        val intent = Intent(this, IntroduceActivity::class.java)
+//        startActivity(intent)
+//        return super.onCreateOptionsMenu(menu)
+//    }
 }

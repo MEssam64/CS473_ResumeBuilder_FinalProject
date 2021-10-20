@@ -9,7 +9,7 @@ interface DAO {
 
     @Transaction
     @Query("SELECT * FROM User")
-    fun getAllUsers() : List<UserWithAllData>
+    suspend fun getAllUsers() : List<UserWithAllData>
 
     @Update
     fun updateUser(user: User)
@@ -40,4 +40,16 @@ interface DAO {
 
     @Delete
     fun deleteEducation(education: Education)
+
+    @Insert
+    fun addExternalLink(externalLinks: ExternalLinks)
+
+    @Query("SELECT * FROM ExternalLinks")
+    fun getAllExternalLinks() : List<ExternalLinks>
+
+    @Update
+    fun updateExternalLink(externalLinks: ExternalLinks)
+
+    @Delete
+    fun deleteExternalLink(externalLinks: ExternalLinks)
 }
