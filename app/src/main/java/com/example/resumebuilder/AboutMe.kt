@@ -33,7 +33,22 @@ class AboutMe : BaseFragment() {
                 txtPhone.text = userWithAllData.user.phoneNumber
             }
         }
-
         return view
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.video_menu, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId) {
+            R.id.introduce-> {
+                val intent = Intent(this.context, IntroduceActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
