@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AboutMe">
-
+    <androidx.cardview.widget.CardView
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -110,5 +114,5 @@
             android:layout_marginTop="165dp"
             android:text="More than 4 years in experience as a software engineer worked with Java, Kotlin, Spring Boot, Spring MVC Hibernate and many other backend technologies" />
     </RelativeLayout>
-
+    </androidx.cardview.widget.CardView>
 </FrameLayout>
