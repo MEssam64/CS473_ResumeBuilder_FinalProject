@@ -35,7 +35,7 @@ abstract class CVDataBase() : RoomDatabase() {
                 override fun onCreate(db: SupportSQLiteDatabase) {
                     super.onCreate(db)
                     Executors.newSingleThreadScheduledExecutor().execute(Runnable {
-                        instance?.getDao()?.addUser(User("Mohamed","Abdelzaher","MAbdelzaher@miu.edu","641-819-1159","","Software Engineer","1000 N 4th street","BIO"))
+                        instance?.getDao()?.addUser(User("Mohamed","Abdelzaher","MAbdelzaher@miu.edu","641-819-1159","","Software Engineer","1000 N 4th street","More than four years experience as a software engineer, worked with java, kotlin, spring boot, spring MVC, hibernate and many other backend technologies."))
                         instance?.getDao()?.addExperience(Experience("Zen3 InfoSolutions","https://zen3tech.com","Redmond - WA", "Software Engineer", Date(2020,11,9),Date(2021,4,15),false,"DDDDD", 1))
                         instance?.getDao()?.addExperience(Experience("MIU university","https://miu.edu","Fairfield - IA", "Software Engineer", Date(2021,4,16),null,true,"DUTIES", 1))
                         instance?.getDao()?.addEducation(Education("Port Said Univeristy","Egypt","Bachelor in Engineering",Date(2006,9,1), Date(2011,5,30),true,1))
