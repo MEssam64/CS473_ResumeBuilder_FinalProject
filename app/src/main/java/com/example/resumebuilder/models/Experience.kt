@@ -11,13 +11,12 @@ import java.util.*
 @TypeConverters(DataConverter::class)
 data class Experience(
     var companyName: String,
-    var companayURL: String,
     var location: String,
     var title: String,
     var from: Date,
     var to:Date? = null,
     var isCurrentWorking: Boolean,
-    var duties: String,
+    var duties: String?,
     var userId: Int) : Serializable {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

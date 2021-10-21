@@ -2,12 +2,14 @@ package com.example.resumebuilder
 
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.resumebuilder.models.CVDataBase
@@ -52,6 +54,7 @@ class RecyclerViewAdapter(var experienceEducationDTOs: ArrayList<ExperienceEduca
         var txtTo: TextView = itemView.findViewById(R.id.txtTo)
         var txtDuties: TextView = itemView.findViewById(R.id.txtDuties)
         var btnDelete: Button = itemView.findViewById(R.id.btnDelete)
+        var btnEdit: Button = itemView.findViewById(R.id.btnEdit)
 
 
         fun bind(experienceEducationDTO: ExperienceEducationDTO, recyclerViewAdapter: RecyclerViewAdapter, position: Int){
@@ -72,7 +75,7 @@ class RecyclerViewAdapter(var experienceEducationDTOs: ArrayList<ExperienceEduca
                     }
                     recyclerViewAdapter.experienceEducationDTOs.removeAt(position)
                     recyclerViewAdapter.notifyItemRemoved(position)
-                    recyclerViewAdapter.notifyItemRangeChanged(position, recyclerViewAdapter.getItemCount());
+                    recyclerViewAdapter.notifyItemRangeChanged(position, recyclerViewAdapter.itemCount);
                     Toast.makeText(
                         itemView.context,
                         "item deleted successfully",
@@ -85,6 +88,13 @@ class RecyclerViewAdapter(var experienceEducationDTOs: ArrayList<ExperienceEduca
                 })
                 builder.show()
 
+            }
+
+            btnEdit.setOnClickListener {
+                var intent = Intent(itemView.context, AddExperienceEducation::class.java)
+                intent.putExtra("ExperienceEducationDTO", experienceEducationDTO)
+                var item = itemView.context  as MainActivity
+                item.startActivityForResult(intent,1)
             }
 
 //            itemView.setOnClickListener {

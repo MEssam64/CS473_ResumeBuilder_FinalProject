@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.resumebuilder.models.CVDataBase
@@ -45,7 +46,7 @@ class PdfFragment : Fragment() {
         }
 
         var view = inflater.inflate(R.layout.fragment_pdf, container, false)
-        var btnToPdf = view.findViewById<Button>(R.id.pdf)
+        var btnToPdf = view.findViewById<ImageButton>(R.id.pdf)
         btnToPdf?.setOnClickListener {
             Toast.makeText(this.context, "sds", Toast.LENGTH_LONG).show()
             if (Build.VERSION.SDK_INT > Build.VERSION_CODES.M) {

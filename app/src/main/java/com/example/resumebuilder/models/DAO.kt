@@ -9,7 +9,7 @@ interface DAO {
 
     @Transaction
     @Query("SELECT * FROM User")
-    suspend fun getAllUsers() : List<UserWithAllData>
+    fun getAllUsers() : List<UserWithAllData>
 
     @Transaction
     @Query("SELECT * FROM User where emailAddress = :email")

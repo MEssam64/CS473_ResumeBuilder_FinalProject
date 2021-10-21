@@ -14,7 +14,8 @@ data class ExperienceEducationDTO(
     var duteis: String?,
     var from: Date,
     var to: Date?,
-    var isCurrent: Boolean) : Serializable {
+    var isCurrent: Boolean,
+    var userId: Int) : Serializable {
 
     companion object {
         fun fromExperience(experience: Experience) : ExperienceEducationDTO{
@@ -27,7 +28,8 @@ data class ExperienceEducationDTO(
                 experience.duties,
                 experience.from,
                 experience.to,
-                experience.isCurrentWorking)
+                experience.isCurrentWorking,
+                experience.userId)
         }
 
         fun fromEducation(education: Education) : ExperienceEducationDTO{
@@ -40,7 +42,37 @@ data class ExperienceEducationDTO(
                 null,
                 education.from,
                 education.to,
-                education.isCurrentGraduated)
+                education.isCurrentGraduated,
+                education.userId)
+        }
+
+        fun toExperience(experienceEducationDTO: ExperienceEducationDTO): Experience {
+            var experience = Experience(
+                experienceEducationDTO.expUniName,
+                experienceEducationDTO.location,
+                experienceEducationDTO.title,
+                experienceEducationDTO.from,
+                experienceEducationDTO.to,
+                experienceEducationDTO.isCurrent,
+                experienceEducationDTO.duteis,
+                experienceEducationDTO.userId)
+            experience.id = experienceEducationDTO.id
+            return experience
+
+        }
+
+        fun toEducation(experienceEducationDTO: ExperienceEducationDTO): Education {
+            var education = Education(
+                experienceEducationDTO.expUniName,
+                experienceEducationDTO.location,
+                experienceEducationDTO.title,
+                experienceEducationDTO.from,
+                experienceEducationDTO.to,
+                experienceEducationDTO.isCurrent,
+                experienceEducationDTO.userId)
+            education.id = experienceEducationDTO.id
+            return education
+
         }
     }
 }

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/activity_add_experience_education.xml" value="0.36666666666666664" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_about_me.xml" value="0.25" />
         <entry key="..\:/Master Projects/CS473/Assignments/ResumeBuilder/app/src/main/res/layout/fragment_education.xml" value="0.33" />
@@ -20,8 +21,6 @@
         <entry key="..\:/Users/student/Documents/GitHub/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_about_me.xml" value="0.1" />
         <entry key="..\:/Users/student/Documents/GitHub/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_education.xml" value="0.11639492753623189" />
         <entry key="..\:/Users/student/Documents/GitHub/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_external_links.xml" value="0.11639492753623189" />
-        <entry key="..\:/Users/student/Documents/GitHub/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/fragment_pdf.xml" value="0.15896739130434784" />
-        <entry key="..\:/Users/student/Documents/GitHub/CS473_ResumeBuilder_FinalProject/app/src/main/res/layout/work_experience_or_education_per_rv.xml" value="0.1" />
       </map>
     </option>
   </component>

@@ -52,6 +52,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="112dp"
         android:text="TextView"
+        android:clickable="true"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toTopOf="parent" />
 

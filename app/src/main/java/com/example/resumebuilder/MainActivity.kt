@@ -12,9 +12,11 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import androidx.recyclerview.widget.RecyclerView
 import com.example.resumebuilder.models.CVDataBase
 import com.example.resumebuilder.models.User
 import com.example.resumebuilder.models.UserWithAllData
+import com.example.resumebuilder.models.helper.ExperienceEducationDTO
 import com.google.android.material.tabs.TabLayoutMediator
 import com.itextpdf.text.Document
 import com.itextpdf.text.Paragraph
@@ -52,6 +54,24 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }.attach()
+    }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 1 && resultCode == RESULT_OK) {
+            Toast.makeText(this, "experience.companyName", Toast.LENGTH_LONG).show()
+            var adapter = findViewById<RecyclerView>(R.id.recycleView).adapter as RecyclerViewAdapter
+            adapter.experienceEducationDTOs.clear()
+            var dao = CVDataBase(this).getDao()
+            var userWithAllData = dao.getAllUsers()[0]
+            for (experience in userWithAllData.experiences) {
+
+                adapter.experienceEducationDTOs.add(ExperienceEducationDTO.fromExperience(experience))
+            }
+            for(education in userWithAllData.educations)
+                adapter.experienceEducationDTOs.add(ExperienceEducationDTO.fromEducation(education))
+
+            adapter.notifyDataSetChanged()
+        }
     }
 }
