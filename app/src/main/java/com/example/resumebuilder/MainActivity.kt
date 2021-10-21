@@ -53,22 +53,31 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
+        /*   val db = Room.databaseBuilder(
+             applicationContext,
+             CVDataBase::class.java,
+             "CVDataBase"
+         ).allowMainThreadQueries().build()
+
+         val userDAO = db.getDao()
+         var ss = userDAO.getAllUsers()
+
+       */
+
         val db = CVDataBase.invoke(this);
 
 
         val userDAO = db.getDao()
 
         GlobalScope.launch {
-            var ss = userDAO.getAllUsers()
-            if (ss.isEmpty()){
-                userDAO.addUser(User("asrat","birhanu","akelilew@miu.edu","6418191529","","Java Developer","",""))
-            }
-            userWithAllData=userDAO.getUserByEmail("akelilew@miu.edu")
+
+            userWithAllData=userDAO.getUserByEmail("MAbdelzaher@miu.edu")
 
 
         }
 
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.video_menu, menu)
@@ -105,40 +114,46 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
     private fun savePdf() {
         val mDoc= Document()
         val fileName= SimpleDateFormat("yyyymmdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
-        val filePath= Environment.getExternalStorageDirectory().toString()+"/" + fileName+""
+        val filePath= Environment.getExternalStorageDirectory().toString()+"/" + fileName+".pdf"
         try {
             PdfWriter.getInstance(mDoc, FileOutputStream(filePath))
             mDoc.open()
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("                                                           "+userWithAllData?.user?.firstName+" "+userWithAllData?.user?.lastName))
+            mDoc.add(Paragraph("                                             "+userWithAllData?.user?.emailAddress +"   " +userWithAllData?.user?.phoneNumber))
+            mDoc.add(Paragraph("                                                           "+userWithAllData?.user?.title))
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("Bio"))
+            mDoc.add(Paragraph("--------------------------------------------------------------------------------------------------------------------------------"))
+            mDoc.add(Paragraph(userWithAllData?.user?.bio))
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("EDUCATION"))
+            mDoc.add(Paragraph("--------------------------------------------------------------------------------------------------------------------------------"))
+            for (edu in userWithAllData!!.educations){
+
+                mDoc.add(Paragraph("                                                   "+edu.schoolName+","+edu.location))
+                // mDoc.add(Paragraph("                      "+edu.location))
+                mDoc.add(Paragraph("                                                   "+edu.title))
+
+            }
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("   "))
+            mDoc.add(Paragraph("EXPERIENCE"))
+            mDoc.add(Paragraph("--------------------------------------------------------------------------------------------------------------------------------"))
+            for (exp in userWithAllData!!.experiences){
+
+                mDoc.add(Paragraph("                                                   "+exp.companyName+""+exp.location))
+                mDoc.add(Paragraph("                                                   "+exp.title))
+                mDoc.add(Paragraph("                                                   "+exp.from.toString()+""+ exp.to.toString()))
 
 
+            }
 
-            mDoc.add(Paragraph(userWithAllData?.user?.firstName+""+userWithAllData?.user?.lastName))
-            /* mDoc.add(Paragraph(userWithAllData?.user?.emailAddress +"" +userWithAllData?.user?.phoneNumber))
-
-             mDoc.add(Paragraph(userWithAllData?.user?.title))
-             mDoc.add(Paragraph(userWithAllData?.user?.bio))
-
-             for (edu in userWithAllData!!.educations){
-
-                 mDoc.add(Paragraph(edu.schoolName))
-                 mDoc.add(Paragraph(edu.location))
-                 mDoc.add(Paragraph(edu.title))
-
-             }
-             for (exp in userWithAllData!!.experiences){
-
-                 mDoc.add(Paragraph(exp.companyName+""+exp.location))
-                 mDoc.add(Paragraph(exp.title))
-                 mDoc.add(Paragraph(exp.from.toString()+""+ exp.to.toString()))
-
-
-             }
- **/
             mDoc.close()
             Toast.makeText(this, "$fileName.pdf\n is saved to\n $filePath", Toast.LENGTH_LONG).show()
 

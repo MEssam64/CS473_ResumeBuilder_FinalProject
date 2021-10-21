@@ -13,7 +13,7 @@ interface DAO {
 
     @Transaction
     @Query("SELECT * FROM User where emailAddress = :email")
-    fun getUserByEmail( email:String) : UserWithAllData
+    suspend fun getUserByEmail( email:String) : UserWithAllData
 
 
     @Update
