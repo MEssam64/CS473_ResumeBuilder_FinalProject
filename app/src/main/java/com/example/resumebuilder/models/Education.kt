@@ -13,7 +13,7 @@ data class Education(
     var schoolName: String,
     var location: String,
     var title: String,
-    var from: Date?,
+    var from: Date,
     var to: Date? = null,
     var isCurrentGraduated: Boolean,
     var userId: Int) : Serializable {

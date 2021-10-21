@@ -17,6 +17,7 @@ data class Experience(
     var from: Date,
     var to:Date? = null,
     var isCurrentWorking: Boolean,
+    var duties: String,
     var userId: Int) : Serializable {
     @PrimaryKey(autoGenerate = true)
     var id: Int = 0

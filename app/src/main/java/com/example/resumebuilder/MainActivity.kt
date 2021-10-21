@@ -42,17 +42,14 @@ class MainActivity : AppCompatActivity() {
                     tab.text = "About me"
                 }
                 1 -> {
-                    tab.text = "Work Experience"
+                    tab.text = "Experience & Education"
                 }
                 2 -> {
-                    tab.text = "Education"
-                }
-                3 -> {
                     tab.text = "External Links"
                 }
-                4 -> {
-                 tab.text = "pdf"
-               }
+                3 -> {
+                    tab.text = "pdf"
+                }
             }
         }.attach()
 
