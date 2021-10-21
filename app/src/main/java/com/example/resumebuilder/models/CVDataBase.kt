@@ -44,6 +44,7 @@ abstract class CVDataBase() : RoomDatabase() {
                     })
                 }
             })
+            .allowMainThreadQueries()
             .build()
     }
 }

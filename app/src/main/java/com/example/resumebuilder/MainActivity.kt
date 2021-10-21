@@ -3,6 +3,7 @@ package com.example.resumebuilder
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,7 +28,6 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
-    private val STORAGE_CODE:Int=100
     var userWithAllData: UserWithAllData?=null;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,106 +53,5 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
-        val db = CVDataBase.invoke(this);
-
-
-        val userDAO = db.getDao()
-
-        GlobalScope.launch {
-
-            userWithAllData=userDAO.getUserByEmail("MAbdelzaher@miu.edu")
-
-
-        }
-
-    }
-
-
-    fun toPdf(view: View) {
-        if(Build.VERSION.SDK_INT> Build.VERSION_CODES.M){
-            if(checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)== PackageManager.PERMISSION_DENIED){
-                val permission= arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                requestPermissions(permission,STORAGE_CODE)
-            }
-            else{
-                savePdf()
-            }
-        }
-        else{
-            savePdf()
-        }
-
-    }
-
-
-
-
-    private fun savePdf() {
-        val mDoc= Document()
-        val fileName= SimpleDateFormat("yyyymmdd_HHmmss", Locale.getDefault()).format(System.currentTimeMillis())
-        val filePath= Environment.getExternalStorageDirectory().toString()+"/" + fileName+".pdf"
-        try {
-            PdfWriter.getInstance(mDoc, FileOutputStream(filePath))
-            mDoc.open()
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("                                                           "+userWithAllData?.user?.firstName+" "+userWithAllData?.user?.lastName))
-            mDoc.add(Paragraph("                                             "+userWithAllData?.user?.emailAddress +"   " +userWithAllData?.user?.phoneNumber))
-            mDoc.add(Paragraph("                                                           "+userWithAllData?.user?.title))
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("Bio"))
-            mDoc.add(Paragraph("--------------------------------------------------------------------------------------------------------------------------------"))
-            mDoc.add(Paragraph(userWithAllData?.user?.bio))
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("EDUCATION"))
-            mDoc.add(Paragraph("--------------------------------------------------------------------------------------------------------------------------------"))
-            for (edu in userWithAllData!!.educations){
-
-                mDoc.add(Paragraph("                                                   "+edu.schoolName+","+edu.location))
-                // mDoc.add(Paragraph("                      "+edu.location))
-                mDoc.add(Paragraph("                                                   "+edu.title))
-
-            }
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("   "))
-            mDoc.add(Paragraph("EXPERIENCE"))
-            mDoc.add(Paragraph("--------------------------------------------------------------------------------------------------------------------------------"))
-            for (exp in userWithAllData!!.experiences){
-
-                mDoc.add(Paragraph("                                                   "+exp.companyName+""+exp.location))
-                mDoc.add(Paragraph("                                                   "+exp.title))
-                mDoc.add(Paragraph("                                                   "+exp.from.toString()+""+ exp.to.toString()))
-
-
-            }
-
-            mDoc.close()
-            Toast.makeText(this, "$fileName.pdf\n is saved to\n $filePath", Toast.LENGTH_LONG).show()
-
-        }
-        catch (e: Exception) {
-            Toast.makeText(this, e.message, Toast.LENGTH_SHORT).show()
-        }
-    }
-
-
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        when(requestCode){
-            STORAGE_CODE->{
-                if(grantResults.isNotEmpty() && grantResults[0]== PackageManager.PERMISSION_GRANTED){
-                    savePdf()
-                }
-                else{
-                    Toast.makeText(this,"permission denied....!", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
     }
 }

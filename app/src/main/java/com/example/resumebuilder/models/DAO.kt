@@ -28,6 +28,9 @@ interface DAO {
     @Query("SELECT * FROM Experience Order By `from` desc")
     fun getAllExperiences() : List<Experience>
 
+    @Query("SELECT * FROM EXPERIENCE WHERE id = :id LIMIT 1")
+    fun getExperienceById(id: Int) : Experience
+
     @Update
     fun updateExperience(experience: Experience)
 
@@ -39,6 +42,9 @@ interface DAO {
 
     @Query("SELECT * FROM Education Order By `from` desc")
     fun getAllEducations() : List<Education>
+
+    @Query("SELECT * FROM EDUCATION WHERE id = :id LIMIT 1")
+    fun getEducationById(id: Int) : Education
 
     @Update
     fun updateEducation(education: Education)
