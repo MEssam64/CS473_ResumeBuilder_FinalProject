@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                     tab.text = "External Links"
                 }
                 3 -> {
-                    tab.text = "pdf"
+                    tab.text = "Generate pdf"
                 }
             }
         }.attach()
