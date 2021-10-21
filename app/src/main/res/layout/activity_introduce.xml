@@ -18,16 +18,36 @@
             android:layout_height="187dp"
             tools:src="@tools:sample/avatars" />
 
-        <Button
-            android:id="@+id/capPicture"
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:id="@+id/ll1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="118dp"
-            android:layout_marginTop="187dp"
-            android:enabled="false"
-            android:text="Take the picture" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginBottom="336dp"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+
+            <Button
+                android:id="@+id/capPicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:text="camera" />
+
+            <Button
+                android:id="@+id/gallery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:text="gallery" />
+        </LinearLayout>
 
         <VideoView
             android:id="@+id/videoView"
