@@ -53,17 +53,6 @@ class MainActivity : AppCompatActivity() {
             }
         }.attach()
 
-        /*   val db = Room.databaseBuilder(
-             applicationContext,
-             CVDataBase::class.java,
-             "CVDataBase"
-         ).allowMainThreadQueries().build()
-
-         val userDAO = db.getDao()
-         var ss = userDAO.getAllUsers()
-
-       */
-
         val db = CVDataBase.invoke(this);
 
 
@@ -78,22 +67,6 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.video_menu, menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
-            R.id.introduce-> {
-                val intent = Intent(this, IntroduceActivity::class.java)
-                startActivity(intent)
-            }
-
-        }
-        return super.onOptionsItemSelected(item)
-    }
 
     fun toPdf(view: View) {
         if(Build.VERSION.SDK_INT> Build.VERSION_CODES.M){

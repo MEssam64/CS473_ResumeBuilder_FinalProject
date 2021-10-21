@@ -25,7 +25,7 @@ interface DAO {
     @Insert
     fun addExperience(experience: Experience)
 
-    @Query("SELECT * FROM Experience")
+    @Query("SELECT * FROM Experience Order By `from` desc")
     fun getAllExperiences() : List<Experience>
 
     @Update
@@ -37,7 +37,7 @@ interface DAO {
     @Insert
     fun addEducation(education: Education)
 
-    @Query("SELECT * FROM Education")
+    @Query("SELECT * FROM Education Order By `from` desc")
     fun getAllEducations() : List<Education>
 
     @Update

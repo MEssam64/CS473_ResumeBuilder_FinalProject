@@ -22,7 +22,7 @@ class WorkExperience : BaseFragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_work_experience, container, false)
-        var experienceEducationDTOs: ArrayList<ExperienceEducationDTO> = ArrayList<ExperienceEducationDTO>()
+        var experienceEducationDTOs: ArrayList<ExperienceEducationDTO> = ArrayList()
         
         launch {
             context?.let {
